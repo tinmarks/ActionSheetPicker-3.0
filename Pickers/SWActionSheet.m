@@ -211,15 +211,11 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     return NO;
 }
 
-// iOS6 support
-// ---
-- (BOOL)shouldAutorotate
-{
-    return YES;
+- (NSUInteger)supportedInterfaceOrientations {
+	return UIInterfaceOrientationMaskPortrait;
 }
-
--(NSUInteger)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskAll;
+-(BOOL)shouldAutorotate {
+	return [[UIDevice currentDevice] orientation] != UIDeviceOrientationPortrait;
 }
 
 @end
